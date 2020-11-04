@@ -28,18 +28,28 @@ class Booking(pd.Series):
                            'booking_date', 
                            'checkin_date', 
                            'checkout_date',
-                           'status']        
+                           'status']  
+        
+        # checks data contains required fields
         if any(map(lambda x: x not in self.index, booking_indexes)) or (not (("revenue" in self.index) ^ ("adr" in self.index))):  
             raise ValueError("Series must contain the following index values:\n -booking_id\n -booking_date\n -checkin_date\n -checkout_date\n And either 'revenue' or 'adr'. But not both")
        
-        
+        # checks date types
+        if any(map(lambda x: type(x) != date, [self.booking_date, self.checkin_date, self.checkout_date])):
+                raise TypeError("All date related fields must be of type date")
+       
+                
         # compute additional booking data from the given data
         self['los'] = self.get_los()
         
         if 'adr' not in self.index:
+            if self.revenue != float:
+                raise TypeError("'revenue' must be of type float")
             self['adr'] = self.get_adr()
             
         if 'revenue' not in self.index:
+            if self.adr != float:
+                raise TypeError("'adr' must be of type float")
             self['revenue'] = self.get_revenue()
     
     
@@ -65,7 +75,7 @@ class Booking(pd.Series):
         Returns:
             float: booking ADR
         """
- 
+        
         if self.los == 0:
             return self.revenue
         else:
@@ -74,7 +84,7 @@ class Booking(pd.Series):
         
     def get_revenue(self):
         
-         """Computes the booking revenue
+        """Computes the booking revenue
         
         Args: 
             None
@@ -86,6 +96,7 @@ class Booking(pd.Series):
             return self.adr
         else:
             return self.adr * self.los
+ 
         
     
     def set_checkin_date(self, new_checkin_date = None, shift_days = 0, modify_kpi = "adr"):
@@ -122,7 +133,7 @@ class Booking(pd.Series):
 
     def set_checkout_date(self, new_checkout_date = None, shift_days = 0, modify_kpi = "adr"):
         
-         """Modifies booking checkout date by either setting a new date or adding or substracting
+        """Modifies booking checkout date by either setting a new date or adding or substracting
         days from the original date. it also modifies length of stay as a subproduct
         
         Args:

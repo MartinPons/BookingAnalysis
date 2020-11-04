@@ -232,7 +232,7 @@ class Booking(pd.Series):
         
     def get_revenue(self):
         
-         """Computes the booking revenue
+        """Computes the booking revenue
         
         Args: 
             None
@@ -280,7 +280,7 @@ class Booking(pd.Series):
 
     def set_checkout_date(self, new_checkout_date = None, shift_days = 0, modify_kpi = "adr"):
         
-         """Modifies booking checkout date by either setting a new date or adding or substracting
+        """Modifies booking checkout date by either setting a new date or adding or substracting
         days from the original date. it also modifies length of stay as a subproduct
         
         Args:

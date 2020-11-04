@@ -1,5 +1,5 @@
 import pandas as pd
-from .Booking import Booking
+from BookingData import Booking
 
 def get_stay_df(df, group_vars = None, status = None):
     
