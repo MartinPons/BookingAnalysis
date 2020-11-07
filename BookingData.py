@@ -33,7 +33,7 @@ class Booking(pd.Series):
         
         # checks data contains required fields
         if any(map(lambda x: x not in self.index, booking_indexes)) or (not (("revenue" in self.index) ^ ("adr" in self.index))):  
-            raise ValueError("Series must contain the following index values:\n -booking_id\n -booking_date\n -checkin_date\n -checkout_date\n And either 'revenue' or 'adr'. But not both")
+            raise ValueError("Series must contain the following index values:\n -booking_id\n -booking_date\n -checkin_date\n -checkout_date\n -status\n And either 'revenue' or 'adr'. But not both")
        
         # checks date types
         if any(map(lambda x: type(x) != date, [self.booking_date, self.checkin_date, self.checkout_date])):

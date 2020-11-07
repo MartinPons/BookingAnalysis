@@ -1,18 +1,11 @@
-from BookingData import Booking
-from get_stay_df import get_stay_df
-from group_stay_df import group_stay_df
-from datetime import date
-from datetime import datetime as dt, timedelta
-import unittest
 import numpy as np
 import pandas as pd
+from BookingData import Booking
+from datetime import date, timedelta, datetime as dt
+import unittest
 
-booking_df_sample = pd.read_csv('booking_df_sample.csv', 
-                                parse_dates = ['booking_date', 'checkin_date', 'checkout_date'])
-
-booking_df_sample['booking_date'] = booking_df_sample['booking_date'].apply(lambda x: x.date())
-booking_df_sample['checkin_date'] = booking_df_sample['checkin_date'].apply(lambda x: x.date())
-booking_df_sample['checkout_date'] = booking_df_sample['checkout_date'].apply(lambda x: x.date())
+booking_df_sample = pd.read_pickle('bookings_df_sample.pkl')
+booking_df_minisample = booking_df_sample.iloc[1:100]
 
 booking_adr = {
     'booking_id': "B1",
