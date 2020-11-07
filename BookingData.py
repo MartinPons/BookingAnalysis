@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from datetime import timedelta
 from datetime import date
@@ -43,12 +44,12 @@ class Booking(pd.Series):
         self['los'] = self.get_los()
         
         if 'adr' not in self.index:
-            if self.revenue != float:
+            if type(self.revenue) != float and not isinstance(self.revenue, np.floating):
                 raise TypeError("'revenue' must be of type float")
             self['adr'] = self.get_adr()
             
         if 'revenue' not in self.index:
-            if self.adr != float:
+            if type(self.adr) != float and not isinstance(self.adr, np.floating):
                 raise TypeError("'adr' must be of type float")
             self['revenue'] = self.get_revenue()
     

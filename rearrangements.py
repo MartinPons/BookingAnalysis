@@ -38,10 +38,6 @@ def get_stay_df(df, group_vars = None, status = None):
     return bookings_df
 
 
-import pandas as pd
-from BookingData import Booking
-from get_stay_df import get_stay_df
-
 def group_stay_df(df,  freq = "1D", group_vars = None, status = None):
     
     """Aggregates DataFrame with enough info to create a Booking class from 
