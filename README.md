@@ -13,12 +13,12 @@ Most of the aforementioned features are still pending.
 
 ### File description
 
-- BookingData.py: code containing the **Booking** class
-- rearrangements.py: code containing functions **get_stay_df** and **group_stay_df** to rearrange and aggregate booking related DataFrames using the Booking class
-- licencse.txt: terms of use
-- __init__.py: package init file
-- setup.py: package setup
--bookings_df_sample.pkl: booking sample data extracted from [Hotel Booking Demand Datasets](https://www.sciencedirect.com/science/article/pii/S2352340918315191), by Nuno Antonio, Ana Almeida, and Luis Nunes for Data in Brief, Volume 22, February 2019
-- tests: folder with files to test the Booking class and the rearrangement functions
+- **BookingData.py**: code containing the **Booking** class
+- **rearrangements.py**: code containing functions **get_stay_df** and **group_stay_df** to rearrange and aggregate booking related DataFrames using the Booking class
+- **licencse.txt**: terms of use
+- **__init__.py**: package init file
+- **setup.py**: package setup
+-**bookings_df_sample.pkl**: booking sample data extracted from [Hotel Booking Demand Datasets](https://www.sciencedirect.com/science/article/pii/S2352340918315191), by Nuno Antonio, Ana Almeida, and Luis Nunes for Data in Brief, Volume 22, February 2019
+- **tests**: folder with files to test the Booking class and the rearrangement functions
 
 
