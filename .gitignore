@@ -1,3 +1,7 @@
 bookings_daily.csv
 city_daily.csv
 resort_daily.csv
+bookings_stay_no_categorical.pkl
+bookings_stay_two_categoricals.pkl
+hotel_bookings.pkl
+hotel_bookings.csv

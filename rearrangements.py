@@ -71,5 +71,5 @@ def group_stay_df(df,  freq = "1D", group_vars = None, status = None):
     
     # computes DataFrame afterwards because it's a ratio
     daily_df['adr'] = daily_df['revenue'] / daily_df['roomnights']
-        
+     
     return daily_df
